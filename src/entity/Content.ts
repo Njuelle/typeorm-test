@@ -9,7 +9,4 @@ export class Content extends BaseEntity {
 
   @Column()
   description: string;
-
-  @Column()
-  foobar: string;
 }

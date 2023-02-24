@@ -1,8 +1,14 @@
 import { ChildEntity, Column } from "typeorm";
 import { Content } from "./Content";
+import { Traced } from "./TraceableEntity";
 
-@ChildEntity()
-export class Photo extends Content {
+class BasePhoto extends Content {
   @Column()
   size: string;
+
+  @Column()
+  foobar: string;
 }
+
+@ChildEntity()
+export class Photo extends Traced(BasePhoto) {}
