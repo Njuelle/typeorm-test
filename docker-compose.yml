@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  app_db:
+    image: postgres:13.9
+    ports:
+      - 5439:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: test_app
