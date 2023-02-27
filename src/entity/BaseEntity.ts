@@ -3,13 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 
 export abstract class BaseEntity {
   @PrimaryColumn("uuid")
-  id: string;
+  readonly id: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  readonly createdAt: Date;
 
   @UpdateDateColumn()
-  lastUpdatedAt: Date;
+  readonly lastUpdatedAt: Date;
 
   constructor(id?: string) {
     this.id = id ?? uuidv4();

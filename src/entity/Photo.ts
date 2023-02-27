@@ -1,13 +1,19 @@
 import { ChildEntity, Column } from "typeorm";
-import { Content } from "./Content";
+import { Content, ContentCtorArgs } from "./Content";
 import { Traced } from "./TraceableEntity";
 
+type PhotoCtorArgs = ContentCtorArgs & {
+  size: string;
+};
 class BasePhoto extends Content {
   @Column()
-  size: string;
+  readonly size: string;
 
-  @Column()
-  foobar: string;
+  constructor(args: PhotoCtorArgs) {
+    super(args);
+
+    this.size = args.size;
+  }
 }
 
 @ChildEntity()
